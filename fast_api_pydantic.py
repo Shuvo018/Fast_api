@@ -6,7 +6,7 @@ class Patient(BaseModel):
     name: str
     age: int
     weight: float
-    married: bool
+    married: bool = False
     allergies: Optional[List[str]] = None
     contact_details: Dict[str, str]
 
