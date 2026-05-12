@@ -1,0 +1,16 @@
+{
+    "P001": {
+        "name": "Ananya Sharma",
+        "city": "chattogram",
+        "age": 23,
+        "gender": "female",
+        "height": 1.65
+    },
+    "P002": {
+        "name": "Akash Sharma",
+        "city": "Dhaka",
+        "age": 24,
+        "gender": "male",
+        "height": 2.65
+    }
+}
