@@ -49,6 +49,10 @@ def save_data(data):
         data = json.dump(data, f)
     return data
 
+@app.get('/')
+def all_patient():
+    return load_data()
+
 @app.post('/create')
 def create_patient(patient: Patient):
 
