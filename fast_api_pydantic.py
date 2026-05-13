@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, AnyUrl
+from pydantic import BaseModel, EmailStr, AnyUrl, Field
 from typing import List, Dict, Optional
 
 
@@ -7,7 +7,7 @@ class Patient(BaseModel):
     email: EmailStr
     linkedin_url: AnyUrl
     age: int
-    weight: float
+    weight: float = Field(gt=1, description="The weight must be greater than one")
     married: bool = False
     allergies: Optional[List[str]] = None
     contact_details: Dict[str, str]
@@ -32,7 +32,7 @@ def update_patient_data(patient: Patient):
 
 
 
-patient_info1 = {'name': 'nitish', 'email': 'abc@gmail.com', 'linkedin_url': 'http://linkedin.com/1234', 'age': 21, 'weight': 75.2, 'married': True, 'allergies': ['pollen', 'dust'], 'contact_details': {'email': 'abc@gmail.com', 'phone': '01888'}}
+patient_info1 = {'name': 'nitish', 'email': 'abc@gmail.com', 'linkedin_url': 'http://linkedin.com/1234', 'age': 21, 'weight': 0, 'married': True, 'allergies': ['pollen', 'dust'], 'contact_details': {'email': 'abc@gmail.com', 'phone': '01888'}}
 patient_info2 = {'name': 'nitish', 'email': 'abc@gmail.com', 'linkedin_url': 'http://linkedin.com/1234', 'age': 21, 'weight': 75.2, 'married': True, 'contact_details': {'email': 'abc@gmail.com', 'phone': '01888'}}
 
 
@@ -41,4 +41,4 @@ patient2 = Patient(**patient_info2)
 
 insert_patient_data(patient1)
 
-update_patient_data(patient2)
+# update_patient_data(patient2)
